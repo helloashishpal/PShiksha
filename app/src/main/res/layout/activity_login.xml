@@ -6,54 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/titleBar"
-        android:textSize="30dp"
-        android:textStyle="bold"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="P. Shiksha 4.0"
-        android:background="@color/theme_colour"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="20dp"
-        />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="625dp" />
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="P.Shiksha 4.0"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/phoneTextView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/editTextNumber"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="492dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logo_card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardBackgroundColor="#2d2b2d"
+            app:cardCornerRadius="999dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_text_view">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/titleBar"
-        android:layout_marginTop="30dp"
-        android:adjustViewBounds="true"
-        android:maxWidth="200dp"
-        android:maxHeight="200dp"
-        android:scaleType="fitCenter"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteY="141dp" />
+            <ImageView
+                android:id="@+id/logo_image_view"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:padding="32dp"
+                app:srcCompat="@drawable/logo" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/title_1_text_view"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="You will receive a 6 digit code on your device"
+            android:textColor="#323232"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo_card_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number_edit_text_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Phone Number"
+            android:padding="32dp"
+            app:layout_constraintTop_toBottomOf="@id/title_1_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_number_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="10"
+                android:minHeight="55dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_round_8"
+            android:backgroundTint="#ffde59"
+            android:padding="16dp"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:windowSoftInputMode="adjustResize"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

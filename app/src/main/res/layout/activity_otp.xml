@@ -36,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="Enter Otp here"
+        android:inputType="number"
+        android:maxLength="6"
         android:paddingHorizontal="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,8 +79,8 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verify_btn"
         android:layout_width="match_parent"
-        android:windowSoftInputMode="adjustResize"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
@@ -88,6 +90,7 @@
         android:text="Verify and Create Account"
         android:textAllCaps="false"
         android:textSize="18sp"
+        android:windowSoftInputMode="adjustResize"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
