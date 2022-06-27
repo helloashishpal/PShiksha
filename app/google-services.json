@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814191884914",
+    "project_id": "pshiksha-8942a",
+    "storage_bucket": "pshiksha-8942a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814191884914:android:b005d8c2626b80faebe0eb",
+        "android_client_info": {
+          "package_name": "com.example.pshiksha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814191884914-s2up58chm5a64bpl4q85je0o62qlnta2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVFWFj8-7xTpjGl9XOhdZHDbDompgvKmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814191884914-s2up58chm5a64bpl4q85je0o62qlnta2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
