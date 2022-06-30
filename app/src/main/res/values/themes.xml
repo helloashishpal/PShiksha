@@ -1,16 +1,91 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.PShiksha" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="fontFamily">@font/roboto_medium</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Widget.AppCompat.ImageButton.HomeUpButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:src">@drawable/ic_back_ios_24</item>
+        <item name="android:background">@drawable/shape_circle_white</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+    </style>
+
+    <style name="TextInputLayout.ProfileSetup" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="errorEnabled">true</item>
+        <item name="helperTextEnabled">true</item>
+        <item name="helperTextTextColor">@color/red</item>
+        <item name="helperText">Required *</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="startIconTint">@color/black</item>
+    </style>
+
+    <style name="ExposedDropdownMenu.ProfileSetup" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="errorEnabled">true</item>
+        <item name="helperTextEnabled">true</item>
+        <item name="helperTextTextColor">@color/red</item>
+        <item name="helperText">Required *</item>
+        <item name="startIconTint">@color/black</item>
+    </style>
+
+
+    <style name="TextInput.ProfileSetup" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:minHeight">55dp</item>
+    </style>
+
+    <style name="AutoCompleteTextView.ProfileSetup" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:minHeight">55dp</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+    <style name="Widget.AppCompat.Button.ButtonTheme" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">@drawable/shape_rectangle_radius_16</item>
+        <item name="android:backgroundTint">@color/yellow</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+        <item name="android:minHeight">55dp</item>
+        <item name="android:text">Sample Text</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

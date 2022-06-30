@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".login.ProfileSetupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="Create your profile"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/full_name_edit_text_layout"
+            style="@style/TextInputLayout.ProfileSetup"
+            android:hint="Full Name"
+            app:counterMaxLength="20"
+            app:startIconDrawable="@drawable/ic_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/full_name_edit_text"
+                style="@style/TextInput.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number_edit_text_layout"
+            style="@style/TextInputLayout.ProfileSetup"
+            android:hint="Phone Number"
+            android:visibility="gone"
+            app:startIconDrawable="@drawable/ic_phone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_number_edit_text"
+                style="@style/TextInput.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/college_name_auto_complete_text_view_layout"
+            style="@style/ExposedDropdownMenu.ProfileSetup"
+            android:hint="College Name"
+            app:startIconDrawable="@drawable/ic_college_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/college_name_auto_complete_text_view"
+                style="@style/AutoCompleteTextView.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/degree_auto_complete_text_view_layout"
+            style="@style/ExposedDropdownMenu.ProfileSetup"
+            android:hint="Degree"
+            app:startIconDrawable="@drawable/ic_graduation_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/degree_auto_complete_text_view"
+                style="@style/AutoCompleteTextView.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/branch_auto_complete_text_view_layout"
+            style="@style/ExposedDropdownMenu.ProfileSetup"
+            android:hint="Branch"
+            app:startIconDrawable="@drawable/ic_baseline_menu_book_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/branch_auto_complete_text_view"
+                style="@style/AutoCompleteTextView.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/graduation_year_auto_complete_text_view_layout"
+            style="@style/ExposedDropdownMenu.ProfileSetup"
+            android:hint="Graduation Year"
+            app:startIconDrawable="@drawable/ic_baseline_123_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/graduation_year_auto_complete_text_view"
+                style="@style/AutoCompleteTextView.ProfileSetup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_button"
+            style="@style/Widget.AppCompat.Button.ButtonTheme"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="0dp"
+            android:text="Create Profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+</ScrollView>
