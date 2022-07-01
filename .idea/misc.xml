@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ashis/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_services.xml" value="0.2015625" />
+        <entry key="..\:/Users/ashis/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/roundcorner.xml" value="0.209" />
+        <entry key="..\:/Users/ashis/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/shape_rectangle_radius_16.xml" value="0.209" />
+        <entry key="..\:/Users/ashis/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_otp.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/ashis/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_services.xml" value="0.33" />
         <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_log_in.xml" value="0.2359375" />
         <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_otp.xml" value="0.25" />
