@@ -1,10 +1,10 @@
-package com.example.pshiksha
+package com.example.pshiksha.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import com.example.pshiksha.R
+import com.example.pshiksha.utils.Util
 import com.example.pshiksha.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -20,13 +20,13 @@ class LoginActivity : AppCompatActivity() {
         binding.continueBtn.setOnClickListener {
             var phoneNumber = binding.phoneNumberEditText.text.toString().trim()
             if (phoneNumber.length < 10) {
-                Toast.makeText(this, "Please Enter a valid Mobile Number", Toast.LENGTH_SHORT)
-                    .show()
+                binding.phoneNumberEditTextLayout.error = getString(R.string.invalid_phone_number)
                 return@setOnClickListener
             }
+            phoneNumber = binding.countryCodeEditText.text.toString() + phoneNumber
 
-            var intent = Intent(applicationContext, OtpActivity::class.java)
-            intent.putExtra(Util.INTENT_EXTRA_PHONE_NUMBER, phoneNumber);
+            val intent = Intent(applicationContext, OtpActivity::class.java)
+            intent.putExtra(Util.INTENT_EXTRA_PHONE_NUMBER, phoneNumber)
             startActivity(intent)
         }
     }

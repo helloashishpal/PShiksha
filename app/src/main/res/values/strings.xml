@@ -1,4 +1,41 @@
 <resources>
     <string name="app_name">PShiksha</string>
-    <string name="phoneTextView">Phone:</string>
+    <string name="login_success">Login Successful</string>
+    <string name="login_failed">Login Failed</string>
+    <string name="no_internet_connection">Please check your internet connection.</string>
+    <string name="otp_sent_success">OTP sent successfully to phone number</string>
+    <string name="otp_sent_failed">Failed to send OTP. Please check your internet connection.</string>
+    <string name="otp_incorrect">Make sure OTP entered is correct.</string>
+    <string name="invalid_phone_number">Please enter a valid phone Number.</string>
+    <string name="user_profile_success">Information saved.</string>
+    <string name="user_profile_failed">An error occurred. Please try again later.</string>
+    <string name="something_went_wrong">Something went Wrong. Please try again later.</string>
+
+
+    <string-array name="college_names">
+        <item>NSUT</item>
+        <item>DTU</item>
+        <item>IGTU</item>
+        <item>IIT</item>
+    </string-array>
+    <string-array name="college_degree">
+        <item>B.Tech</item>
+        <item>M.Tech</item>
+    </string-array>
+    <string-array name="college_branch">
+        <item>Computer Science</item>
+        <item>EE</item>
+        <item>ICE</item>
+        <item>ICEICE</item>
+    </string-array>
+    <string-array name="college_graduation_year">
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </string-array>
 </resources>
