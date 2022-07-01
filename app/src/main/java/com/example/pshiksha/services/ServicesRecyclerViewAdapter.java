@@ -1,6 +1,8 @@
 package com.example.pshiksha.services;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -33,8 +35,16 @@ public class ServicesRecyclerView extends RecyclerView.Adapter<ServicesRecyclerV
 
     @Override
     public void onBindViewHolder(@NonNull ServicesViewHolder holder, int position) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) context).getWindowManager()
+                .getDefaultDisplay()
+                .getMetrics(displayMetrics);
+        int width = displayMetrics.widthPixels;
+
         holder.textView.setText(servicesList.get(position).getTitle());
         holder.imageView.setImageResource(servicesList.get(position).getImageResId());
+        holder.imageView.setTranslationX(width / 6.0f);
+        holder.itemView.setOnClickListener(v -> mOnClickListener.onItemClick(position));
 //            holder.imageView  = servicesList.get(position).getColor();
     }
 
