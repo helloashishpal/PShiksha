@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.example.pshiksha.R
 import com.example.pshiksha.utils.Util
 import com.example.pshiksha.databinding.ActivityLoginBinding
-import com.example.pshiksha.services.TempActivity
+import com.example.pshiksha.services.ServicesActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        startActivity(Intent(applicationContext, TempActivity::class.java))
+        startActivity(Intent(applicationContext, ServicesActivity::class.java))
 
         binding.continueBtn.setOnClickListener {
             var phoneNumber = binding.phoneNumberEditText.text.toString().trim()
