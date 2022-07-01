@@ -15,13 +15,13 @@ import com.example.pshiksha.databinding.ServicesItemBinding;
 
 import java.util.List;
 
-public class ServicesRecyclerView extends RecyclerView.Adapter<ServicesRecyclerView.ServicesViewHolder> {
+public class ServicesRecyclerViewAdapter extends RecyclerView.Adapter<ServicesRecyclerViewAdapter.ServicesViewHolder> {
 
     private final Context context;
     private final List<Services> servicesList;
     private ServicesItemOnClickListener mOnClickListener = null;
 
-    public ServicesRecyclerView(Context context, List<Services> servicesList) {
+    public ServicesRecyclerViewAdapter(Context context, List<Services> servicesList) {
         this.context = context;
         this.servicesList = servicesList;
     }

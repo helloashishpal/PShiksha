@@ -1,7 +1,5 @@
 package com.example.pshiksha.services;
 
-import android.graphics.Color;
-
 public class Services {
     private final String title;
     private final Integer imageResId;

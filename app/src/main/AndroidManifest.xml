@@ -14,7 +14,7 @@
         android:theme="@style/Theme.PShiksha"
         tools:targetApi="31">
         <activity
-            android:name=".services.TempActivity"
+            android:name=".services.ServicesActivity"
             android:exported="false" />
         <activity
             android:name=".login.ProfileSetupActivity"
