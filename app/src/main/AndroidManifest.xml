@@ -17,6 +17,9 @@
             android:name=".services.EditUserProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".services.servicesActivities.EdSheetActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>

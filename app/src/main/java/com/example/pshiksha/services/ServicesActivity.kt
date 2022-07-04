@@ -31,6 +31,10 @@ class ServicesActivity : AppCompatActivity() {
         if (firebaseAuth.currentUser == null) return
 
 
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+        servicesList.add(Services("", R.drawable.ic_person_24, R.color.yellow, null))
         servicesList.add(Services("TITLE1", R.drawable.ic_person_24, R.color.yellow, null))
         servicesList.add(Services("TITLE2", R.drawable.ic_college_24, R.color.yellow, null))
         servicesList.add(Services("TITLE3", R.drawable.ic_person_24, R.color.yellow, null))

@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.example.pshiksha.databinding.ActivitySplashScreenBinding;
 import com.example.pshiksha.login.LoginActivity;
 import com.example.pshiksha.services.ServicesActivity;
+import com.example.pshiksha.services.servicesActivities.EdSheetActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,7 +39,11 @@ public class SplashScreenActivity extends AppCompatActivity {
             } else {
                 intent = new Intent(getApplicationContext(), LoginActivity.class);
             }
+
+            //intent = new Intent(this, EdSheetActivity.class);
+
             startActivity(intent);
+
             finish();
         }, 2000);
     }
