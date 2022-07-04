@@ -17,13 +17,13 @@
         android:text="Hey, Lisa"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@id/cardView"
+        app:layout_constraintEnd_toStartOf="@id/profile_card_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/profile_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/profile_image_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@color/yellow"
@@ -47,8 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_card_view"
         tools:itemCount="6"
         tools:listitem="@layout/services_item" />
 

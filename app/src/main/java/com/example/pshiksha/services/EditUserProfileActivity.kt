@@ -1,13 +1,15 @@
-package com.example.pshiksha.login
+package com.example.pshiksha.services
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.R
-import com.example.pshiksha.databinding.ActivityProfileSetupBinding
-import com.example.pshiksha.services.ServicesActivity
+import com.example.pshiksha.databinding.ActivityEditUserProfileBinding
+import com.example.pshiksha.login.LoginActivity
+import com.example.pshiksha.login.UserInformation
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.android.gms.tasks.Task
@@ -16,37 +18,27 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
-class ProfileSetupActivity : AppCompatActivity() {
+class EditUserProfileActivity : AppCompatActivity() {
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseDatabase: FirebaseDatabase? = null
     private var currentUser: FirebaseUser? = null
-    private var binding: ActivityProfileSetupBinding? = null
+    private var binding: ActivityEditUserProfileBinding? = null
+    private var currentUserInformation: UserInformation? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileSetupBinding.inflate(
-            layoutInflater
-        )
+        binding = ActivityEditUserProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        supportActionBar?.hide()
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
         currentUser = firebaseAuth!!.currentUser
-        val collegeNames = resources.getStringArray(R.array.college_names)
-        val collegeDegree = resources.getStringArray(R.array.college_degree)
-        val collegeBranch = resources.getStringArray(R.array.college_branch)
-        val collegeGraduationYear = resources.getStringArray(R.array.college_graduation_year)
-        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
-        val collegeDegreeAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeDegree)
-        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
-        val collegeGraduationYearAdapter =
-            ArrayAdapter(this, R.layout.dropdown_layout, collegeGraduationYear)
-        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
-        binding!!.degreeAutoCompleteTextView.setAdapter(collegeDegreeAdapter)
-        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
-        binding!!.graduationYearAutoCompleteTextView.setAdapter(collegeGraduationYearAdapter)
 
-        //Filling phoneNumber and disabling phoneEditText
-        binding!!.phoneNumberEditText.setText(currentUser!!.phoneNumber)
-        binding!!.phoneNumberEditText.isEnabled = false
+        currentUserInformation = intent.getSerializableExtra("USER_INFORMATION") as UserInformation?
+        fillDropDowns()
+        fillCurrentUserInformation()
+
+
         binding!!.confirmButton.setOnClickListener {
             val userInformation = userInformation
             if (userInformation != null) {
@@ -64,13 +56,7 @@ class ProfileSetupActivity : AppCompatActivity() {
                                 getString(R.string.user_profile_success),
                                 Toast.LENGTH_SHORT
                             ).show()
-                            startActivity(
-                                Intent(
-                                    applicationContext,
-                                    ServicesActivity::class.java
-                                )
-                            )
-                            finishAffinity()
+                            finish()
                         } else {
                             Toast.makeText(
                                 this,
@@ -82,26 +68,69 @@ class ProfileSetupActivity : AppCompatActivity() {
                     }
             }
         }
+
+        binding!!.homeUpButton.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding!!.logOutButton.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Log Out?")
+                .setPositiveButton("Yes") { _, _ ->
+                    firebaseAuth?.signOut()
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                    finishAffinity()
+                }
+                .setNegativeButton("No") { dialogInterface, _ ->
+                    dialogInterface.cancel()
+                }
+                .show()
+        }
+    }
+
+    private fun fillDropDowns() {
+        val collegeNames = resources.getStringArray(R.array.college_names)
+        val collegeDegree = resources.getStringArray(R.array.college_degree)
+        val collegeBranch = resources.getStringArray(R.array.college_branch)
+        val collegeGraduationYear = resources.getStringArray(R.array.college_graduation_year)
+        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
+        val collegeDegreeAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeDegree)
+        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
+        val collegeGraduationYearAdapter =
+            ArrayAdapter(this, R.layout.dropdown_layout, collegeGraduationYear)
+        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
+        binding!!.degreeAutoCompleteTextView.setAdapter(collegeDegreeAdapter)
+        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
+        binding!!.graduationYearAutoCompleteTextView.setAdapter(collegeGraduationYearAdapter)
+    }
+
+    private fun fillCurrentUserInformation() {
+        binding!!.fullNameEditText.setText(currentUserInformation?.fullName)
+        binding!!.phoneNumberEditText.setText(currentUserInformation?.phoneNumber)
+        binding!!.collegeNameAutoCompleteTextView.setText(currentUserInformation?.collegeName)
+        binding!!.degreeAutoCompleteTextView.setText(currentUserInformation?.collegeDegree)
+        binding!!.branchAutoCompleteTextView.setText(currentUserInformation?.collegeBranch)
+        binding!!.graduationYearAutoCompleteTextView.setText(currentUserInformation?.collegeGraduationYear)
     }
 
     private val userInformation: UserInformation?
         get() {
             val fullName = Objects.requireNonNull(binding!!.fullNameEditText.text).toString()
-                .trim { it <= ' ' }
+                .trim()
             val phoneNumber = Objects.requireNonNull(binding!!.phoneNumberEditText.text).toString()
-                .trim { it <= ' ' }
+                .trim()
             val collegeName =
                 Objects.requireNonNull(binding!!.collegeNameAutoCompleteTextView.text).toString()
-                    .trim { it <= ' ' }
+                    .trim()
             val collegeDegree =
                 Objects.requireNonNull(binding!!.degreeAutoCompleteTextView.text).toString()
-                    .trim { it <= ' ' }
+                    .trim()
             val collegeBranch =
                 Objects.requireNonNull(binding!!.branchAutoCompleteTextView.text).toString()
-                    .trim { it <= ' ' }
+                    .trim()
             val collegeGraduationYear = Objects.requireNonNull(
                 binding!!.graduationYearAutoCompleteTextView.text
-            ).toString().trim { it <= ' ' }
+            ).toString().trim()
             if (fullName.isEmpty()) {
                 binding!!.fullNameEditTextLayout.error = "Please enter a valid Name."
                 binding!!.fullNameEditText.requestFocus()
@@ -137,4 +166,18 @@ class ProfileSetupActivity : AppCompatActivity() {
                 collegeGraduationYear
             )
         }
+
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle("Are you sure to Exit")
+            .setMessage("Any changes will not be saved.")
+            .setPositiveButton("Yes") { _, _ ->
+                super.onBackPressed()
+            }
+            .setNegativeButton("No") { dialogInterface, _ ->
+                dialogInterface.cancel()
+            }
+            .show()
+    }
 }
