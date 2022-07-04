@@ -1,6 +1,8 @@
 package com.example.pshiksha.login;
 
-public class UserInformation {
+import java.io.Serializable;
+
+public class UserInformation implements Serializable {
 
     private String fullName;
     private String phoneNumber;
