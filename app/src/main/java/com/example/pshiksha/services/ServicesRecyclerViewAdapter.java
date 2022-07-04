@@ -1,16 +1,16 @@
 package com.example.pshiksha.services;
 
-import android.app.Activity;
 import android.content.Context;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pshiksha.R;
 import com.example.pshiksha.databinding.ServicesItemBinding;
 
 import java.util.List;
@@ -35,17 +35,10 @@ public class ServicesRecyclerViewAdapter extends RecyclerView.Adapter<ServicesRe
 
     @Override
     public void onBindViewHolder(@NonNull ServicesViewHolder holder, int position) {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((Activity) context).getWindowManager()
-                .getDefaultDisplay()
-                .getMetrics(displayMetrics);
-        int width = displayMetrics.widthPixels;
-
         holder.textView.setText(servicesList.get(position).getTitle());
         holder.imageView.setImageResource(servicesList.get(position).getImageResId());
-        holder.imageView.setTranslationX(width / 6.0f);
+        holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.yellow));
         holder.itemView.setOnClickListener(v -> mOnClickListener.onItemClick(position));
-//            holder.imageView  = servicesList.get(position).getColor();
     }
 
     @Override
@@ -56,11 +49,13 @@ public class ServicesRecyclerViewAdapter extends RecyclerView.Adapter<ServicesRe
     public static class ServicesViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
         ImageView imageView;
+        CardView cardView;
 
         public ServicesViewHolder(@NonNull ServicesItemBinding binding) {
             super(binding.getRoot());
             textView = binding.textView;
             imageView = binding.imageView;
+            cardView = binding.cardView;
         }
     }
 

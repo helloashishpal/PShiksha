@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        startActivity(Intent(applicationContext, ServicesActivity::class.java))
+//        startActivity(Intent(applicationContext, ServicesActivity::class.java))
 
         binding.continueBtn.setOnClickListener {
             var phoneNumber = binding.phoneNumberEditText.text.toString().trim()

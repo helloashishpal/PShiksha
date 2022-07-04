@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.R
 import com.example.pshiksha.databinding.ActivityOtpBinding
+import com.example.pshiksha.services.ServicesActivity
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.android.material.snackbar.Snackbar
@@ -130,11 +131,12 @@ class OtpActivity : AppCompatActivity() {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.exists()) {
                                     //Profile Exists.
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Profile Exists",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    startActivity(
+                                        Intent(
+                                            applicationContext,
+                                            ServicesActivity::class.java
+                                        )
+                                    )
                                 } else {
                                     //Profile does not exists. open a ProfileSetupActivity
                                     startActivity(
