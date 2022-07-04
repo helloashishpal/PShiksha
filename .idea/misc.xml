@@ -3,30 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/btn_round_8.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/button_home_up.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/ic_graduation_24.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/ic_launcher_background.xml" value="0.121" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/ic_otp_image_24.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/ic_profile_avatar.xml" value="0.1085" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/otp_background_error.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/otp_border_8dp.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/otp_view_background.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/otp_view_success_background.xml" value="0.136" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/services_item.xml" value="0.1085" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/drawable/shape_circle_white.xml" value="0.1085" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/font/font_family_roboto.xml" value="0.2518518518518518" />
         <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_log_in.xml" value="0.2359375" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_otp.xml" value="0.264" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_profile_setup.xml" value="0.264" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_services.xml" value="0.176" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_temp.xml" value="0.25" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/dropdown_layout.xml" value="0.1875" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/loader_layout.xml" value="0.4" />
-        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/services_item.xml" value="0.25" />
+        <entry key="..\:/Users/chanp/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_otp.xml" value="0.25" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_ed_sheet.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_login.xml" value="0.17844202898550723" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_otp.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_profile_setup.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_services.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/activity_temp.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/dropdown_layout.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/loader_layout.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/service_activity_template.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/service_item.xml" value="0.25" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/layout/services_item.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/samva/AndroidStudioProjects/PShiksha/app/src/main/res/mipmap-anydpi-v26/pshiksha_logo_round.xml" value="0.22" />
       </map>
     </option>
   </component>
