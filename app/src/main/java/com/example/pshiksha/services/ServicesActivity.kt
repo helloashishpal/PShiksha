@@ -30,7 +30,24 @@ class ServicesActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser == null) return
 
+        val loader = LoaderBuilder(this)
+            .setTitle("Loading Profile...")
+        loader.show()
 
+        firebaseDatabase.getReference(Util.FIREBASE_USER_PROFILE_INFORMATION)
+            .child(firebaseAuth.currentUser!!.uid)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userInformation = snapshot.getValue(UserInformation::class.java)
+                    val title = "Hello, ${userInformation?.fullName}"
+                    binding.textView.text = title
+                    loader.hide()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+        servicesList.add(Services("", R.drawable.ic_person_24, R.color.yellow, null))
         servicesList.add(Services("TITLE1", R.drawable.ic_person_24, R.color.yellow, null))
         servicesList.add(Services("TITLE2", R.drawable.ic_college_24, R.color.yellow, null))
         servicesList.add(Services("TITLE3", R.drawable.ic_person_24, R.color.yellow, null))

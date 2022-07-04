@@ -15,7 +15,6 @@ public class MajorMinorProjectActivity extends AppCompatActivity {
         binding = ActivityMajorMinorProjectBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding
 
     }
 }
