@@ -1,14 +1,18 @@
 package com.example.pshiksha.services;
 
+import android.app.Activity;
+
 public class Services {
     private final String title;
     private final Integer imageResId;
-    private final Integer color;
+    private final Integer colorResID;
+    private final Activity onClickActivity;
 
-    public Services(String title, Integer imageResId, Integer color) {
+    public Services(String title, Integer imageResId, Integer colorResID, Activity onClickActivity) {
         this.title = title;
         this.imageResId = imageResId;
-        this.color = color;
+        this.colorResID = colorResID;
+        this.onClickActivity = onClickActivity;
     }
 
     public String getTitle() {
@@ -19,7 +23,11 @@ public class Services {
         return imageResId;
     }
 
-    public Integer getColor() {
-        return color;
+    public Integer getColorResID() {
+        return colorResID;
+    }
+
+    public Activity getOnClickActivity() {
+        return onClickActivity;
     }
 }
