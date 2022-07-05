@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.example.pshiksha.R
 import com.example.pshiksha.utils.Util
 import com.example.pshiksha.databinding.ActivityLoginBinding
-import com.example.pshiksha.services.ServicesActivity
 
 class LoginActivity : AppCompatActivity() {
 

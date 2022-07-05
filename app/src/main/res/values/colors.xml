@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFD426</color>
     <color name="yellow_org">#FFFFDE59</color>
+    <color name="services_item_image_tint">#BF000000</color>
 </resources>
