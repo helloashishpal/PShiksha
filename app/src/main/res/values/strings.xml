@@ -18,6 +18,8 @@
     <string name="check_out">Check Out</string>
 
 
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas vel elit dapibus semper. Vestibulum non urna tincidunt, rutrum velit porta, rutrum dui. Sed fermentum commodo aliquam. Aliquam in placerat enim, malesuada facilisis nulla. Curabitur blandit accumsan purus, ac imperdiet nulla aliquet ut. Integer lobortis pulvinar sollicitudin. Aliquam tristique pretium ligula nec laoreet. Vivamus velit velit, blandit nec risus vel, fringilla mattis ex. Curabitur vestibulum hendrerit erat luctus aliquet. Donec non lacus elementum, tincidunt lectus non, lobortis nunc. Maecenas ut felis dolor. Phasellus iaculis odio eget metus iaculis, ac rutrum orci lobortis.</string>
+
     <string-array name="college_names">
         <item>NSUT</item>
         <item>DTU</item>
@@ -44,4 +46,14 @@
         <item>2026</item>
         <item>2027</item>
     </string-array>
+
+
+    <!--    services name strings-->
+    <string name="service_professional_cv_making_title">Professional CV Making</string>
+    <string name="service_major_minor_project_title">Major/Minor Projects</string>
+    <string name="service_assignment_file_ppt_report_title">Assignment/File/PPT/Report Making</string>
+    <string name="service_placement_preparation_title">Placement Preparation</string>
+    <string name="service_plagiarism_removal_thesis_guidance_title">Plagiarism removal/Thesis guidance</string>
+    <string name="service_tech_non_tech_internship_title">Tech/Non-tech internship</string>
+    <string name="service_coaching_immigration_title">CAT coaching/IELTS, Visa, Immigration services</string>
 </resources>

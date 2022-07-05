@@ -8,34 +8,42 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:paddingBottom="100dp">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:id="@+id/service_image_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo" />
+                android:adjustViewBounds="true"
+                android:background="@color/black"
+                android:src="@drawable/ic_service_professional_cv_making" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/service_title_text_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Name"
+                android:paddingHorizontal="24dp"
+                android:text="Major/Minor Projects"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/service_description_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Title"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="24dp"
+                android:text="@string/lorem_ipsum"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />

@@ -1,17 +1,15 @@
 package com.example.pshiksha.services;
 
-import android.app.Activity;
+import java.io.Serializable;
 
-public class Services {
+public class ServiceItem implements Serializable {
     private final String title;
     private final Integer imageResId;
-    private final Integer colorResID;
-    private final Activity onClickActivity;
+    private final Class<?> onClickActivity;
 
-    public Services(String title, Integer imageResId, Integer colorResID, Activity onClickActivity) {
+    public ServiceItem(String title, Integer imageResId, Class<?> onClickActivity) {
         this.title = title;
         this.imageResId = imageResId;
-        this.colorResID = colorResID;
         this.onClickActivity = onClickActivity;
     }
 
@@ -23,11 +21,7 @@ public class Services {
         return imageResId;
     }
 
-    public Integer getColorResID() {
-        return colorResID;
-    }
-
-    public Activity getOnClickActivity() {
+    public Class<?> getOnClickActivity() {
         return onClickActivity;
     }
 }
