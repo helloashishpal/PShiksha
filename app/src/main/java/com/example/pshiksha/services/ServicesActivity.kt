@@ -1,7 +1,6 @@
 package com.example.pshiksha.services
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -177,9 +176,7 @@ class ServicesActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_services_contact_us -> {
-                val intent = Intent(Intent.ACTION_DIAL)
-                intent.data = Uri.parse("tel:" + getString(R.string.pshiksha_phone_number))
-                startActivity(intent)
+                startActivity(Intent(applicationContext, ContactUsActivity::class.java))
             }
             R.id.menu_services_about_us -> {
 

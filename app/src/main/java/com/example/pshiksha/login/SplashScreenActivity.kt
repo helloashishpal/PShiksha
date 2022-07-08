@@ -30,7 +30,8 @@ class SplashScreenActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         user = auth!!.currentUser
 
-        binding.linearLayout.animation = AnimationUtils.loadAnimation(applicationContext, android.R.anim.slide_in_left)
+        binding.linearLayout.animation =
+            AnimationUtils.loadAnimation(applicationContext, android.R.anim.fade_in)
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (user != null) {
