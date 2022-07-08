@@ -1,18 +1,25 @@
 package com.example.pshiksha.services
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pshiksha.R
 import com.example.pshiksha.databinding.ActivityServicesBinding
+import com.example.pshiksha.login.LoginActivity
 import com.example.pshiksha.login.UserInformation
 import com.example.pshiksha.services.AllServices.MajorMinorProjectActivity
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ServicesActivity : AppCompatActivity() {
     private lateinit var firebaseDatabase: FirebaseDatabase
@@ -160,5 +167,29 @@ class ServicesActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.services_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_services_contact_us -> {
+                val intent = Intent(Intent.ACTION_DIAL)
+                intent.data = Uri.parse("tel:" + getString(R.string.pshiksha_phone_number))
+                startActivity(intent)
+            }
+            R.id.menu_services_about_us -> {
+
+            }
+            R.id.menu_services_log_out -> {
+                firebaseAuth.signOut()
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+                finishAffinity()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

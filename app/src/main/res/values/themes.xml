@@ -56,9 +56,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:minHeight">55dp</item>
+        <item name="android:minHeight">60dp</item>
     </style>
 
     <style name="AutoCompleteTextView.ProfileSetup" parent="">

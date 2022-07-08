@@ -35,8 +35,8 @@ class EditUserProfileActivity : AppCompatActivity() {
         currentUser = firebaseAuth!!.currentUser
 
         currentUserInformation = intent.getSerializableExtra("USER_INFORMATION") as UserInformation?
-        fillDropDowns()
         fillCurrentUserInformation()
+        fillDropDowns()
 
 
         binding!!.confirmButton.setOnClickListener {
@@ -89,18 +89,18 @@ class EditUserProfileActivity : AppCompatActivity() {
     }
 
     private fun fillDropDowns() {
-        val collegeNames = resources.getStringArray(R.array.college_names)
+//        val collegeNames = resources.getStringArray(R.array.college_names)
         val collegeDegree = resources.getStringArray(R.array.college_degree)
-        val collegeBranch = resources.getStringArray(R.array.college_branch)
+//        val collegeBranch = resources.getStringArray(R.array.college_branch)
         val collegeGraduationYear = resources.getStringArray(R.array.college_graduation_year)
-        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
+//        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
         val collegeDegreeAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeDegree)
-        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
+//        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
         val collegeGraduationYearAdapter =
             ArrayAdapter(this, R.layout.dropdown_layout, collegeGraduationYear)
-        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
+//        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
         binding!!.degreeAutoCompleteTextView.setAdapter(collegeDegreeAdapter)
-        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
+//        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
         binding!!.graduationYearAutoCompleteTextView.setAdapter(collegeGraduationYearAdapter)
     }
 

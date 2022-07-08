@@ -27,26 +27,19 @@ class ProfileSetupActivity : AppCompatActivity() {
             layoutInflater
         )
         setContentView(binding!!.root)
+
+        supportActionBar?.hide()
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
         currentUser = firebaseAuth!!.currentUser
-        val collegeNames = resources.getStringArray(R.array.college_names)
-        val collegeDegree = resources.getStringArray(R.array.college_degree)
-        val collegeBranch = resources.getStringArray(R.array.college_branch)
-        val collegeGraduationYear = resources.getStringArray(R.array.college_graduation_year)
-        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
-        val collegeDegreeAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeDegree)
-        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
-        val collegeGraduationYearAdapter =
-            ArrayAdapter(this, R.layout.dropdown_layout, collegeGraduationYear)
-        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
-        binding!!.degreeAutoCompleteTextView.setAdapter(collegeDegreeAdapter)
-        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
-        binding!!.graduationYearAutoCompleteTextView.setAdapter(collegeGraduationYearAdapter)
+
+        initDropdowns()
 
         //Filling phoneNumber and disabling phoneEditText
         binding!!.phoneNumberEditText.setText(currentUser!!.phoneNumber)
         binding!!.phoneNumberEditText.isEnabled = false
+
+
         binding!!.confirmButton.setOnClickListener {
             val userInformation = userInformation
             if (userInformation != null) {
@@ -82,6 +75,22 @@ class ProfileSetupActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun initDropdowns() {
+//        val collegeNames = resources.getStringArray(R.array.college_names)
+        val collegeDegree = resources.getStringArray(R.array.college_degree)
+//        val collegeBranch = resources.getStringArray(R.array.college_branch)
+        val collegeGraduationYear = resources.getStringArray(R.array.college_graduation_year)
+//        val collegeNamesAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeNames)
+        val collegeDegreeAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeDegree)
+//        val collegeBranchAdapter = ArrayAdapter(this, R.layout.dropdown_layout, collegeBranch)
+        val collegeGraduationYearAdapter =
+            ArrayAdapter(this, R.layout.dropdown_layout, collegeGraduationYear)
+//        binding!!.collegeNameAutoCompleteTextView.setAdapter(collegeNamesAdapter)
+        binding!!.degreeAutoCompleteTextView.setAdapter(collegeDegreeAdapter)
+//        binding!!.branchAutoCompleteTextView.setAdapter(collegeBranchAdapter)
+        binding!!.graduationYearAutoCompleteTextView.setAdapter(collegeGraduationYearAdapter)
     }
 
     private val userInformation: UserInformation?

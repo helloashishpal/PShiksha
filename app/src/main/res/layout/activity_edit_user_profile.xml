@@ -42,8 +42,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phone_number_edit_text_layout"
                 style="@style/TextInputLayout.ProfileSetup"
+                android:enabled="false"
                 android:hint="Phone Number"
-                android:visibility="gone"
                 app:startIconDrawable="@drawable/ic_phone_24">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -53,13 +53,13 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/college_name_auto_complete_text_view_layout"
-                style="@style/ExposedDropdownMenu.ProfileSetup"
+                style="@style/TextInputLayout.ProfileSetup"
                 android:hint="College Name"
                 app:startIconDrawable="@drawable/ic_college_24">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/college_name_auto_complete_text_view"
-                    style="@style/AutoCompleteTextView.ProfileSetup" />
+                    style="@style/TextInput.ProfileSetup" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -75,15 +75,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/branch_auto_complete_text_view_layout"
-                style="@style/ExposedDropdownMenu.ProfileSetup"
+                style="@style/TextInputLayout.ProfileSetup"
                 android:hint="Branch"
                 app:startIconDrawable="@drawable/ic_baseline_menu_book_24">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/branch_auto_complete_text_view"
-                    style="@style/AutoCompleteTextView.ProfileSetup" />
+                    style="@style/TextInput.ProfileSetup" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/graduation_year_auto_complete_text_view_layout"

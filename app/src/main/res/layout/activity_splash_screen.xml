@@ -7,6 +7,7 @@
     tools:context=".login.SplashScreenActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,7 +21,6 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="32dp"
             app:cardBackgroundColor="#2d2b2d"
             app:cardCornerRadius="999dp">
 
@@ -28,7 +28,7 @@
                 android:id="@+id/logo_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
+                android:padding="16sp"
                 app:srcCompat="@drawable/logo" />
         </androidx.cardview.widget.CardView>
 
