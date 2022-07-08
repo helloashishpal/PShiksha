@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">P.Shiksha 4.0</string>
-    <string name="pshiksha_phone_number">9599139063</string>
+    <string name="pshiksha_phone_number">919599139063</string>
+    <string name="pshiksha_email_id">pshiksha4.0@gmail.com</string>
     <string name="login_success">Login Successful</string>
     <string name="login_failed">Login Failed</string>
     <string name="no_internet_connection">Please check your internet connection.</string>
