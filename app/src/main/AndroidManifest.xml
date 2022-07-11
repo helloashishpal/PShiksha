@@ -14,10 +14,13 @@
         android:theme="@style/Theme.PShiksha"
         tools:targetApi="31">
         <activity
+            android:name=".services.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".services.ContactUsActivity"
             android:exported="false" />
         <activity
-            android:name=".services.AllServices.MajorMinorProjectActivity"
+            android:name=".services.allServices.MajorMinorProjectActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

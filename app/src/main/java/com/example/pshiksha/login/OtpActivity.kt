@@ -27,7 +27,7 @@ class OtpActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpBinding
 
     private lateinit var phoneNumber: String
-    private var otpTimeout = 10L
+    private var otpTimeout = 60L
     private var canSend = false
 
     private lateinit var storedVerificationId: String

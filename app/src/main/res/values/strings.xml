@@ -2,6 +2,15 @@
     <string name="app_name">P.Shiksha 4.0</string>
     <string name="pshiksha_phone_number">919599139063</string>
     <string name="pshiksha_email_id">pshiksha4.0@gmail.com</string>
+    <string name="pshiksha_website">https://www.pshiksha4.com/</string>
+    <string name="pshiksha_linkedin">https://www.linkedin.com/company/pshiksha/</string>
+    <string name="pshiksha_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas vel elit dapibus semper. Vestibulum non urna tincidunt</string>
+    <string name="pshiksha_address">House no. 191, Block no. 1, Ground floor, Subhash Nagar</string>
+    <string name="pshiksha_zip_code">110027</string>
+    <string name="pshiksha_city">New Delhi, Delhi</string>
+    <string name="pshiksha_country">India</string>
+
+    <!--    -->
     <string name="login_success">Login Successful</string>
     <string name="login_failed">Login Failed</string>
     <string name="no_internet_connection">Please check your internet connection.</string>
@@ -52,9 +61,21 @@
     <!--    services name strings-->
     <string name="service_professional_cv_making_title">Professional CV Making</string>
     <string name="service_major_minor_project_title">Major/Minor Projects</string>
+    <string name="service_ed_sheet_making_title">ED Sheet Making</string>
     <string name="service_assignment_file_ppt_report_title">Assignment/File/PPT/Report Making</string>
     <string name="service_placement_preparation_title">Placement Preparation</string>
     <string name="service_plagiarism_removal_thesis_guidance_title">Plagiarism removal/Thesis guidance</string>
     <string name="service_tech_non_tech_internship_title">Tech/Non-tech internship</string>
     <string name="service_coaching_immigration_title">CAT coaching/IELTS, Visa, Immigration services</string>
+
+    <!--    services name description strings-->
+    <string name="service_professional_cv_making_description">Professional CV Making</string>
+    <string name="service_major_minor_project_description">Major/Minor Projects</string>
+    <string name="service_ed_sheet_making_description">ED Sheet Making</string>
+    <string name="service_assignment_file_ppt_report_description">Assignment/File/PPT/Report Making</string>
+    <string name="service_placement_preparation_description">Placement Preparation</string>
+    <string name="service_plagiarism_removal_thesis_guidance_description">Plagiarism removal/Thesis guidance</string>
+    <string name="service_tech_non_tech_internship_description">Tech/Non-tech internship</string>
+    <string name="service_coaching_immigration_description">CAT coaching/IELTS, Visa, Immigration services</string>
+
 </resources>

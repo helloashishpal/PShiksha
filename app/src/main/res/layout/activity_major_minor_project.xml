@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".services.AllServices.MajorMinorProjectActivity">
+    tools:context=".services.allServices.MajorMinorProjectActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/onCallClickButton"
         style="@style/Widget.AppCompat.Button.ButtonTheme"
-        android:text="Call Us Now"
+        android:text="Contact Us Now"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

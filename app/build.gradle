@@ -49,4 +49,5 @@ dependencies {
     implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
     implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:3.0.0'
+    implementation 'io.github.medyo:android-about-page:2.0.0'
 }
