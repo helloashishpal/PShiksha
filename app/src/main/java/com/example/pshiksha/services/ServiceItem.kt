@@ -6,6 +6,6 @@ class ServiceItem(
     val title: String,
     val description: String,
     val imageResId: Int,
-    val onClickActivity: Class<*>
-) :
-    Serializable
+    val onClickActivity: Class<*>,
+    val price: Int
+) : Serializable

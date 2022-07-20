@@ -43,7 +43,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_ed_sheet_making_title),
                 getString(R.string.service_ed_sheet_making_description),
                 R.drawable.ic_service_ed_sheet_making,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
         serviceItemList.add(
@@ -51,7 +52,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_assignment_file_ppt_report_title),
                 getString(R.string.service_assignment_file_ppt_report_description),
                 R.drawable.ic_service_assignment_file_ppt_report,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
         serviceItemList.add(
@@ -59,7 +61,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_professional_cv_making_title),
                 getString(R.string.service_professional_cv_making_description),
                 R.drawable.ic_service_professional_cv_making,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
         serviceItemList.add(
@@ -67,7 +70,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_placement_preparation_title),
                 getString(R.string.service_placement_preparation_description),
                 R.drawable.ic_service_placement_preparation,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
 
@@ -76,7 +80,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_major_minor_project_title),
                 getString(R.string.service_major_minor_project_description),
                 R.drawable.ic_service_major_minor_project,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
 
@@ -85,7 +90,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_plagiarism_removal_thesis_guidance_title),
                 getString(R.string.service_plagiarism_removal_thesis_guidance_description),
                 R.drawable.ic_service_plagiarism_removal_thesis_guidance,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
 
@@ -94,7 +100,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_coaching_immigration_title),
                 getString(R.string.service_coaching_immigration_description),
                 R.drawable.ic_service_coaching_immigration,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
         serviceItemList.add(
@@ -102,7 +109,8 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_tech_non_tech_internship_title),
                 getString(R.string.service_tech_non_tech_internship_description),
                 R.drawable.ic_service_tech_non_tech_internship,
-                MajorMinorProjectActivity::class.java
+                MajorMinorProjectActivity::class.java,
+                600
             )
         )
         initRecyclerView()
@@ -173,6 +181,9 @@ class ServicesActivity : AppCompatActivity() {
                 firebaseAuth.signOut()
                 startActivity(Intent(applicationContext, LoginActivity::class.java))
                 finishAffinity()
+            }
+            R.id.menu_services_your_orders -> {
+                startActivity(Intent(applicationContext, YourOrdersActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

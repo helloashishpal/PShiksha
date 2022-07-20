@@ -11,6 +11,10 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_services_your_orders"
+        android:title="Your orders"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_services_log_out"
         android:title="Log out"
         app:showAsAction="never" />
