@@ -21,14 +21,8 @@
             android:text="Order Id here"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/order_date_time_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Order Time here"
-            android:textSize="17sp" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,12 +98,20 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/order_date_time_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Order Time here"
+                    android:textSize="17sp" />
+
+                <TextView
                     android:id="@+id/transaction_id_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Transaction Id Here."
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

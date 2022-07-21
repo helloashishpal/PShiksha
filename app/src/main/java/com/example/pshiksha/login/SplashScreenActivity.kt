@@ -7,7 +7,7 @@ import android.os.Looper
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.databinding.ActivitySplashScreenBinding
-import com.example.pshiksha.services.ServicesActivity
+import com.example.pshiksha.main.MainActivity
 import com.example.pshiksha.utils.Util
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -47,7 +47,7 @@ class SplashScreenActivity : AppCompatActivity() {
                                 startActivity(
                                     Intent(
                                         applicationContext,
-                                        ServicesActivity::class.java
+                                        MainActivity::class.java
                                     )
                                 )
                             } else {

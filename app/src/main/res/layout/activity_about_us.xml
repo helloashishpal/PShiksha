@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".services.AboutUsActivity">
+    tools:context=".main.about_us.AboutUsActivity">
     <ImageButton
         android:id="@+id/homeUpButton"
         style="@style/Widget.AppCompat.ImageButton.HomeUpButton"

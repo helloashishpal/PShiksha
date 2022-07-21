@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.R
 import com.example.pshiksha.databinding.ActivityProfileSetupBinding
-import com.example.pshiksha.services.ServicesActivity
+import com.example.pshiksha.main.MainActivity
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.android.gms.tasks.Task
@@ -60,7 +60,7 @@ class ProfileSetupActivity : AppCompatActivity() {
                             startActivity(
                                 Intent(
                                     applicationContext,
-                                    ServicesActivity::class.java
+                                    MainActivity::class.java
                                 )
                             )
                             finishAffinity()
@@ -143,7 +143,8 @@ class ProfileSetupActivity : AppCompatActivity() {
                 collegeName,
                 collegeDegree,
                 collegeBranch,
-                collegeGraduationYear
+                collegeGraduationYear,
+                false
             )
         }
 }

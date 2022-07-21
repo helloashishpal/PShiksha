@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,17 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pshiksha.R
-import com.example.pshiksha.databinding.ActivityServicesBinding
+import com.example.pshiksha.databinding.ActivityMainBinding
 import com.example.pshiksha.login.LoginActivity
 import com.example.pshiksha.login.UserInformation
-import com.example.pshiksha.services.allServices.MajorMinorProjectActivity
+import com.example.pshiksha.main.about_us.AboutUsActivity
+import com.example.pshiksha.main.contact_us.ContactUsActivity
+import com.example.pshiksha.main.orders.all_orders.AllUserOrdersActivity
+import com.example.pshiksha.main.orders.order_history.OrderHistoryActivity
+import com.example.pshiksha.main.profile_edit.EditUserProfileActivity
+import com.example.pshiksha.main.services.ServiceItem
+import com.example.pshiksha.main.services.ServicesItemAdapter
+import com.example.pshiksha.main.services.ServiceDetailsActivity
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.firebase.auth.FirebaseAuth
@@ -19,15 +26,16 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class ServicesActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity() {
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var binding: ActivityServicesBinding
-    private lateinit var userInformation: UserInformation
+    private lateinit var binding: ActivityMainBinding
+    private var userInformation: UserInformation? = null
     private val serviceItemList: MutableList<ServiceItem> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityServicesBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.title = getString(R.string.app_name)
@@ -43,7 +51,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_ed_sheet_making_title),
                 getString(R.string.service_ed_sheet_making_description),
                 R.drawable.ic_service_ed_sheet_making,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -52,7 +60,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_assignment_file_ppt_report_title),
                 getString(R.string.service_assignment_file_ppt_report_description),
                 R.drawable.ic_service_assignment_file_ppt_report,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -61,7 +69,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_professional_cv_making_title),
                 getString(R.string.service_professional_cv_making_description),
                 R.drawable.ic_service_professional_cv_making,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -70,7 +78,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_placement_preparation_title),
                 getString(R.string.service_placement_preparation_description),
                 R.drawable.ic_service_placement_preparation,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -80,7 +88,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_major_minor_project_title),
                 getString(R.string.service_major_minor_project_description),
                 R.drawable.ic_service_major_minor_project,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -90,7 +98,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_plagiarism_removal_thesis_guidance_title),
                 getString(R.string.service_plagiarism_removal_thesis_guidance_description),
                 R.drawable.ic_service_plagiarism_removal_thesis_guidance,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -100,7 +108,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_coaching_immigration_title),
                 getString(R.string.service_coaching_immigration_description),
                 R.drawable.ic_service_coaching_immigration,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -109,7 +117,7 @@ class ServicesActivity : AppCompatActivity() {
                 getString(R.string.service_tech_non_tech_internship_title),
                 getString(R.string.service_tech_non_tech_internship_description),
                 R.drawable.ic_service_tech_non_tech_internship,
-                MajorMinorProjectActivity::class.java,
+                ServiceDetailsActivity::class.java,
                 600
             )
         )
@@ -132,11 +140,10 @@ class ServicesActivity : AppCompatActivity() {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userInformation = snapshot.getValue(UserInformation::class.java)
-                    if (userInformation != null) {
-                        this@ServicesActivity.userInformation = userInformation
-                    }
-                    val title = "Hello, ${userInformation?.fullName}"
+                    this@MainActivity.userInformation = userInformation
+                    val title = "Hello, ${userInformation!!.fullName}"
                     binding.textView.text = title
+                    invalidateOptionsMenu()
                     loader.hide()
                 }
 
@@ -146,7 +153,7 @@ class ServicesActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        val adapter = ServicesRecyclerViewAdapter(
+        val adapter = ServicesItemAdapter(
             this,
             serviceItemList
         )
@@ -154,7 +161,7 @@ class ServicesActivity : AppCompatActivity() {
             StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.adapter = adapter
         adapter.setOnItemClickListener(object :
-            ServicesRecyclerViewAdapter.ServicesItemOnClickListener {
+            ServicesItemAdapter.ServicesItemOnClickListener {
             override fun onItemClick(position: Int) {
                 val nextActivity = serviceItemList[position].onClickActivity
                 val intent = Intent(applicationContext, nextActivity)
@@ -166,6 +173,13 @@ class ServicesActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.services_menu, menu)
+        val item = menu!!.findItem(R.id.menu_services_all_user_orders)
+        item.isVisible = false
+        if (userInformation != null) {
+            if (userInformation?.admin == true)
+                item.isVisible = true
+        }
+
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -183,7 +197,10 @@ class ServicesActivity : AppCompatActivity() {
                 finishAffinity()
             }
             R.id.menu_services_your_orders -> {
-                startActivity(Intent(applicationContext, YourOrdersActivity::class.java))
+                startActivity(Intent(applicationContext, OrderHistoryActivity::class.java))
+            }
+            R.id.menu_services_all_user_orders -> {
+                startActivity(Intent(applicationContext, AllUserOrdersActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

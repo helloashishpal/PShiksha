@@ -16,23 +16,29 @@
         android:theme="@style/Theme.PShiksha"
         tools:targetApi="31">
         <activity
-            android:name=".services.PlaceOrderActivity"
+            android:name=".main.orders.OrderDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".services.YourOrdersActivity"
+            android:name=".main.orders.all_orders.AllUserOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".services.AboutUsActivity"
+            android:name=".main.services.place_order.PlaceOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".services.ContactUsActivity"
+            android:name=".main.orders.order_history.OrderHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".services.allServices.MajorMinorProjectActivity"
+            android:name=".main.about_us.AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.contact_us.ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.services.ServiceDetailsActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".services.EditUserProfileActivity"
+            android:name=".main.profile_edit.EditUserProfileActivity"
             android:exported="false" />
         <activity
             android:name=".login.SplashScreenActivity"
@@ -44,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".services.ServicesActivity"
+            android:name=".main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".login.ProfileSetupActivity"

@@ -9,7 +9,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFD426</color>
-    <color name="yellow_dark">#E4BB14</color>
+    <color name="yellow_dark">#FFE4BB14</color>
+    <color name="green_dark">#FF00A100</color>
     <color name="yellow_org">#FFFFDE59</color>
     <color name="services_item_image_tint">#BF000000</color>
 </resources>

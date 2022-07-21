@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.about_us
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

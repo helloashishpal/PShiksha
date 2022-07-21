@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.services
 
 import java.io.Serializable
 

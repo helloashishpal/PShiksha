@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.services.place_order
 
 import android.app.Activity
 import android.content.Intent
@@ -7,8 +7,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.pshiksha.databinding.ActivityPlaceOrderBinding
-import com.example.pshiksha.transactions.OrderDetails
-import com.example.pshiksha.transactions.ServiceTransaction
+import com.example.pshiksha.main.services.ServiceItem
+import com.example.pshiksha.main.orders.OrderDetails
+import com.example.pshiksha.main.orders.TransactionDetails
+import com.example.pshiksha.main.orders.order_history.OrderHistoryActivity
+import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -21,6 +24,7 @@ import org.json.JSONObject
 class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
     private lateinit var binding: ActivityPlaceOrderBinding
     private var serviceItem: ServiceItem? = null
+    private lateinit var loader: LoaderBuilder
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlaceOrderBinding.inflate(layoutInflater)
@@ -34,12 +38,25 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
         binding.payButton.text = btnMessage
         binding.serviceNameTextView.text = serviceItem?.title
         binding.serviceImageView.setImageResource(serviceItem!!.imageResId)
+        binding.serviceDescriptionEditText.hint = "Describe how you want your ${serviceItem?.title}"
         //
         binding.homeUpButton.setOnClickListener { onBackPressed() }
-        binding.payButton.setOnClickListener { startPayment() }
+        binding.payButton.setOnClickListener {
+            if (binding.serviceDescriptionEditText.text.toString().length <= 25) {
+                Toast.makeText(
+                    applicationContext,
+                    "Description must be 25 characters long.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            startPayment()
+        }
     }
 
     private fun startPayment() {
+        loader = LoaderBuilder(this@PlaceOrderActivity).setTitle("Please wait...")
+        loader.show()
         val activity: Activity = this@PlaceOrderActivity
         val checkout = Checkout()
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -69,16 +86,17 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
     }
 
     override fun onPaymentSuccess(mTransactionID: String?, mPaymentData: PaymentData?) {
+        loader.hide()
         Snackbar.make(
             binding.payButton as View,
-            "Payment Successful",
+            "Order Placed. Checkout more services",
             Snackbar.LENGTH_LONG
         )
             .setAction("View Orders") {
                 startActivity(
                     Intent(
                         this@PlaceOrderActivity,
-                        YourOrdersActivity::class.java
+                        OrderHistoryActivity::class.java
                     )
                 )
             }
@@ -103,6 +121,7 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
                 Toast.makeText(applicationContext, "TLS_ERROR", Toast.LENGTH_SHORT).show()
             }
         }
+        loader.hide()
     }
 
     private fun pushOrderAndTransaction(mTransactionID: String?) {
@@ -111,15 +130,22 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
         val mTransactionTime = System.currentTimeMillis().toString()
         val mOrderId = "order_ps" + System.currentTimeMillis().toString()
         val mPrice = serviceItem!!.price
-        val serviceTransaction =
-            ServiceTransaction(
-                mTransactionID,
+        val transactionDetails =
+            TransactionDetails(
+                mTransactionID!!,
                 mTransactionTime,
                 mPrice
             )
 
         val orderDetails =
-            OrderDetails(mUserUid, mOrderId, serviceItem!!.title, serviceTransaction)
+            OrderDetails(
+                mUserUid!!,
+                mOrderId,
+                serviceItem!!.title,
+                transactionDetails,
+                binding.serviceDescriptionEditText.text.toString(),
+                OrderDetails.ServiceStatus.PENDING
+            )
 
         val databaseReference = FirebaseDatabase.getInstance().reference
 
@@ -130,7 +156,7 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
 
         databaseReference
             .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
-            .child(mUserUid!!)
+            .child(mUserUid)
             .child(Util.FIREBASE_USER_ORDERS)
             .child(mOrderId)
             .setValue(orderDetails)

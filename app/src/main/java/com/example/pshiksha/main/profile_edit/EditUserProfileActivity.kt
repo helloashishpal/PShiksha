@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.profile_edit
 
 import android.content.Intent
 import android.os.Bundle
@@ -163,7 +163,8 @@ class EditUserProfileActivity : AppCompatActivity() {
                 collegeName,
                 collegeDegree,
                 collegeBranch,
-                collegeGraduationYear
+                collegeGraduationYear,
+                false
             )
         }
 
