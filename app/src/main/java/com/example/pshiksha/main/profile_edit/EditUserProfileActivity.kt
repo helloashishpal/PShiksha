@@ -1,4 +1,4 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.profile_edit
 
 import android.content.Intent
 import android.os.Bundle
@@ -46,8 +46,9 @@ class EditUserProfileActivity : AppCompatActivity() {
                 loaderBuilder.setTitle("Saving Information...")
                 loaderBuilder.show()
                 firebaseDatabase!!.reference
-                    .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+                    .child(Util.FIREBASE_USERS)
                     .child(currentUser!!.uid)
+                    .child(Util.FIREBASE_USER_INFORMATION)
                     .setValue(userInformation)
                     .addOnCompleteListener { task: Task<Void?> ->
                         if (task.isSuccessful) {
@@ -163,7 +164,9 @@ class EditUserProfileActivity : AppCompatActivity() {
                 collegeName,
                 collegeDegree,
                 collegeBranch,
-                collegeGraduationYear
+                collegeGraduationYear,
+                userInformation?.referralCode,
+                currentUserInformation?.admin
             )
         }
 

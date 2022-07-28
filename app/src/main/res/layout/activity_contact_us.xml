@@ -5,51 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".services.ContactUsActivity">
+    tools:context=".main.contact_us.ContactUsActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/photo_card_view"
-            android:layout_width="120sp"
-            android:layout_height="120sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:translationY="60sp"
-            app:cardBackgroundColor="@color/yellow"
-            app:cardCornerRadius="999dp"
-            app:cardElevation="16dp"
-            app:layout_constraintBottom_toTopOf="@id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <ImageButton
+                android:id="@+id/homeUpButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_circle_white"
+                android:elevation="4dp"
+                android:src="@drawable/ic_back_ios_24" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_person_24" />
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Contact Us"
+                android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="100sp"
-            android:layout_marginBottom="8dp"
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
-            app:layout_constraintBottom_toTopOf="@id/card_view_2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="48dp"
                 android:orientation="vertical"
                 android:paddingVertical="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/photo_card_view"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/yellow"
+                    app:cardCornerRadius="999dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/founder_profile_photo" />
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -58,7 +77,7 @@
                     android:padding="8dp"
                     android:text="Sony Rajput"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -67,7 +86,7 @@
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/pshiksha_email_id"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -76,7 +95,7 @@
                     android:padding="8dp"
                     android:text="Founder"
                     android:textColor="@color/black"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,8 +105,8 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/contact_us_email"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
                         android:layout_marginHorizontal="16sp"
                         android:layout_marginVertical="16dp"
                         app:cardBackgroundColor="#7520FF"
@@ -97,7 +116,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="12sp"
+                            android:padding="8dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_baseline_email_24"
                             app:tint="@color/white" />
@@ -105,8 +124,8 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/contact_us_phone_number"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
                         android:layout_marginHorizontal="16sp"
                         android:layout_marginVertical="16dp"
                         app:cardBackgroundColor="#1499FF"
@@ -116,7 +135,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="12sp"
+                            android:padding="8dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_phone_24"
                             app:tint="@color/white" />
@@ -124,8 +143,8 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/contact_us_whatsapp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
                         android:layout_marginHorizontal="16sp"
                         android:layout_marginVertical="16dp"
                         app:cardBackgroundColor="#ff2ed64b"
@@ -148,11 +167,9 @@
             android:id="@+id/card_view_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
-            app:layout_constraintTop_toBottomOf="@id/cardView">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -174,9 +191,9 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="8dp"
                     android:paddingBottom="16dp"
-                    android:text="House no. 191, Block no. 1, Ground floor, Subhash Nagar"
+                    android:text="@string/pshiksha_address"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
 
                 <TextView
@@ -192,9 +209,9 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="8dp"
                     android:paddingBottom="16dp"
-                    android:text="110027"
+                    android:text="@string/pshiksha_zip_code"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
 
                 <TextView
@@ -210,9 +227,9 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="8dp"
                     android:paddingBottom="16dp"
-                    android:text="New Delhi, Delhi"
+                    android:text="@string/pshiksha_city"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
 
                 <TextView
@@ -228,9 +245,9 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="8dp"
                     android:paddingBottom="16dp"
-                    android:text="India"
+                    android:text="@string/pshiksha_country"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/locate_on_map"
@@ -243,13 +260,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <ImageButton
-            android:id="@+id/homeUpButton"
-            style="@style/Widget.AppCompat.ImageButton.HomeUpButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

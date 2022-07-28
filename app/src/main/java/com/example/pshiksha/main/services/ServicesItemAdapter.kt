@@ -1,9 +1,9 @@
-package com.example.pshiksha.services
+package com.example.pshiksha.main.services
 
 import android.content.Context
 import android.os.Build
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pshiksha.services.ServicesRecyclerViewAdapter.ServicesViewHolder
+import com.example.pshiksha.main.services.ServicesItemAdapter.ServicesViewHolder
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.ImageView
@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import com.example.pshiksha.databinding.ServicesItemBinding
 
-class ServicesRecyclerViewAdapter(
+class ServicesItemAdapter(
     private val context: Context,
     private val serviceItemList: List<ServiceItem>
 ) : RecyclerView.Adapter<ServicesViewHolder>() {
