@@ -155,7 +155,7 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
             .setValue(orderDetails)
 
         databaseReference
-            .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+            .child(Util.FIREBASE_USERS)
             .child(mUserUid)
             .child(Util.FIREBASE_USER_ORDERS)
             .child(mOrderId)

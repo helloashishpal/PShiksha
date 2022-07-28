@@ -8,13 +8,8 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.databinding.ActivitySplashScreenBinding
 import com.example.pshiksha.main.MainActivity
-import com.example.pshiksha.utils.Util
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
@@ -35,42 +30,16 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (user != null) {
-                val currentUserUid: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-                if (currentUserUid.isNotEmpty()) {
-                    val rootRef = FirebaseDatabase.getInstance()
-                        .getReference(Util.FIREBASE_USER_PROFILE_INFORMATION)
-                        .child(currentUserUid)
-                    rootRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            if (snapshot.exists()) {
-                                //Profile Exists.
-                                startActivity(
-                                    Intent(
-                                        applicationContext,
-                                        MainActivity::class.java
-                                    )
-                                )
-                            } else {
-                                //Profile does not exists. open a ProfileSetupActivity
-                                startActivity(
-                                    Intent(
-                                        applicationContext,
-                                        ProfileSetupActivity::class.java
-                                    )
-                                )
-                            }
-                            finishAffinity()
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                        }
-                    })
-                }
+                startActivity(
+                    Intent(
+                        applicationContext,
+                        MainActivity::class.java
+                    )
+                )
             } else {
                 startActivity(Intent(applicationContext, LoginActivity::class.java))
-                finish()
             }
-        }, 2000)
+            finishAffinity()
+        }, 1000)
     }
-
 }

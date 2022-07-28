@@ -10,7 +10,6 @@ import com.example.pshiksha.databinding.ActivityProfileSetupBinding
 import com.example.pshiksha.main.MainActivity
 import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -47,11 +46,18 @@ class ProfileSetupActivity : AppCompatActivity() {
                 loaderBuilder.setTitle("Saving Information...")
                 loaderBuilder.show()
                 firebaseDatabase!!.reference
-                    .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+                    .child(Util.FIREBASE_USERS)
                     .child(currentUser!!.uid)
+                    .child(Util.FIREBASE_USER_INFORMATION)
                     .setValue(userInformation)
-                    .addOnCompleteListener { task: Task<Void?> ->
+                    .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            firebaseDatabase!!.reference
+                                .child(Util.FIREBASE_REFERRALS)
+                                .child(userInformation.referralCode)
+                                .push()
+                                .setValue(  currentUser!!.uid)
+
                             Toast.makeText(
                                 this,
                                 getString(R.string.user_profile_success),
@@ -111,6 +117,8 @@ class ProfileSetupActivity : AppCompatActivity() {
             val collegeGraduationYear = Objects.requireNonNull(
                 binding!!.graduationYearAutoCompleteTextView.text
             ).toString().trim { it <= ' ' }
+            val referralCode: String =
+                binding!!.referralCodeTextView.text.toString().trim().uppercase()
             if (fullName.isEmpty()) {
                 binding!!.fullNameEditTextLayout.error = "Please enter a valid Name."
                 binding!!.fullNameEditText.requestFocus()
@@ -136,6 +144,11 @@ class ProfileSetupActivity : AppCompatActivity() {
                     "Please select a Graduation year."
                 binding!!.graduationYearAutoCompleteTextView.requestFocus()
                 return null
+            } else if (referralCode.isEmpty()) {
+                binding!!.referralCodeTextViewLayout.error =
+                    "Please enter a valid referral code."
+                binding!!.referralCodeTextView.requestFocus()
+                return null
             }
             return UserInformation(
                 fullName,
@@ -144,6 +157,7 @@ class ProfileSetupActivity : AppCompatActivity() {
                 collegeDegree,
                 collegeBranch,
                 collegeGraduationYear,
+                referralCode,
                 false
             )
         }

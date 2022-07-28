@@ -89,8 +89,9 @@ class OrderDetailsActivity : AppCompatActivity() {
         val databaseReference = FirebaseDatabase.getInstance().reference
 
         databaseReference
-            .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+            .child(Util.FIREBASE_USERS)
             .child(orderDetails.userUid)
+            .child(Util.FIREBASE_USER_INFORMATION)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userInformation = snapshot.getValue(UserInformation::class.java)
@@ -126,7 +127,7 @@ class OrderDetailsActivity : AppCompatActivity() {
         val databaseReference = FirebaseDatabase.getInstance().reference
 
         databaseReference
-            .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+            .child(Util.FIREBASE_USERS)
             .child(orderDetails.userUid)
             .child(Util.FIREBASE_USER_ORDERS)
             .child(orderDetails.orderId)

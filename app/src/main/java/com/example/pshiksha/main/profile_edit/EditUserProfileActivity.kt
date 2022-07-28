@@ -46,8 +46,9 @@ class EditUserProfileActivity : AppCompatActivity() {
                 loaderBuilder.setTitle("Saving Information...")
                 loaderBuilder.show()
                 firebaseDatabase!!.reference
-                    .child(Util.FIREBASE_USER_PROFILE_INFORMATION)
+                    .child(Util.FIREBASE_USERS)
                     .child(currentUser!!.uid)
+                    .child(Util.FIREBASE_USER_INFORMATION)
                     .setValue(userInformation)
                     .addOnCompleteListener { task: Task<Void?> ->
                         if (task.isSuccessful) {
@@ -164,7 +165,8 @@ class EditUserProfileActivity : AppCompatActivity() {
                 collegeDegree,
                 collegeBranch,
                 collegeGraduationYear,
-                false
+                userInformation?.referralCode,
+                currentUserInformation?.admin
             )
         }
 

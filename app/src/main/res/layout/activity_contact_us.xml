@@ -7,49 +7,68 @@
     android:fillViewport="true"
     tools:context=".main.contact_us.ContactUsActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/photo_card_view"
-            android:layout_width="120sp"
-            android:layout_height="120sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:translationY="60sp"
-            app:cardBackgroundColor="@color/yellow"
-            app:cardCornerRadius="999dp"
-            app:cardElevation="16dp"
-            app:layout_constraintBottom_toTopOf="@id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <ImageButton
+                android:id="@+id/homeUpButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_circle_white"
+                android:elevation="4dp"
+                android:src="@drawable/ic_back_ios_24" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/founder_profile_photo" />
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Contact Us"
+                android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="100sp"
-            android:layout_marginBottom="8dp"
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
-            app:layout_constraintBottom_toTopOf="@id/card_view_2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="48dp"
                 android:orientation="vertical"
                 android:paddingVertical="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/photo_card_view"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/yellow"
+                    app:cardCornerRadius="999dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/founder_profile_photo" />
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -148,12 +167,9 @@
             android:id="@+id/card_view_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardView">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -244,13 +260,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <ImageButton
-            android:id="@+id/homeUpButton"
-            style="@style/Widget.AppCompat.ImageButton.HomeUpButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

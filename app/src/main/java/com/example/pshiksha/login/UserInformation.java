@@ -9,18 +9,20 @@ public class UserInformation implements Serializable {
     private String collegeDegree;
     private String collegeBranch;
     private String collegeGraduationYear;
+    private String referralCode;
     private Boolean admin;
 
     public UserInformation() {
     }
 
-    public UserInformation(String fullName, String phoneNumber, String collegeName, String collegeDegree, String collegeBranch, String collegeGraduationYear, Boolean admin) {
+    public UserInformation(String fullName, String phoneNumber, String collegeName, String collegeDegree, String collegeBranch, String collegeGraduationYear, String referralCode, Boolean admin) {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.collegeName = collegeName;
         this.collegeDegree = collegeDegree;
         this.collegeBranch = collegeBranch;
         this.collegeGraduationYear = collegeGraduationYear;
+        this.referralCode = referralCode;
         this.admin = admin;
     }
 
@@ -46,6 +48,10 @@ public class UserInformation implements Serializable {
 
     public String getCollegeGraduationYear() {
         return collegeGraduationYear;
+    }
+
+    public String getReferralCode() {
+        return referralCode;
     }
 
     public Boolean getAdmin() {

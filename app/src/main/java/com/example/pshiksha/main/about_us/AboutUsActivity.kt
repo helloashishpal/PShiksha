@@ -23,7 +23,7 @@ class AboutUsActivity : AppCompatActivity() {
             .addYoutube("UCzi3OWdA5YBLdYoqh5_ZTsA")
             .addPlayStore(packageName)
             .create()
-        binding!!.root.addView(aboutPage, 0)
+        binding!!.linearLayout.addView(aboutPage)
         binding!!.homeUpButton.setOnClickListener { onBackPressed() }
     }
 }

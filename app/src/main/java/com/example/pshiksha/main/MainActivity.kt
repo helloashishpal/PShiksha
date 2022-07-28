@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pshiksha.R
 import com.example.pshiksha.databinding.ActivityMainBinding
 import com.example.pshiksha.login.LoginActivity
+import com.example.pshiksha.login.ProfileSetupActivity
 import com.example.pshiksha.login.UserInformation
 import com.example.pshiksha.main.about_us.AboutUsActivity
 import com.example.pshiksha.main.contact_us.ContactUsActivity
@@ -43,8 +44,7 @@ class MainActivity : AppCompatActivity() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
 
-        if (firebaseAuth.currentUser == null) return
-        getCurrentUserDetails()
+        isCurrentUserRegistered()
 
         serviceItemList.add(
             ServiceItem(
@@ -130,13 +130,48 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun isCurrentUserRegistered() {
+        val loader = LoaderBuilder(this)
+            .setTitle("Checking Profile...")
+        loader.show()
+        val currentUserUid: String = firebaseAuth.currentUser!!.uid
+        val reference = firebaseDatabase.reference
+
+        reference
+            .child(Util.FIREBASE_USERS)
+            .child(currentUserUid)
+            .child(Util.FIREBASE_USER_INFORMATION)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (!snapshot.exists()) {
+                        //Profile does not exists. open a ProfileSetupActivity
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                ProfileSetupActivity::class.java
+                            )
+                        )
+                        finishAffinity()
+                    } else {
+                        getCurrentUserDetails()
+                    }
+                    loader.hide()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+    }
+
     private fun getCurrentUserDetails() {
         val loader = LoaderBuilder(this)
             .setTitle("Loading Profile...")
         loader.show()
 
-        firebaseDatabase.getReference(Util.FIREBASE_USER_PROFILE_INFORMATION)
+        firebaseDatabase
+            .getReference(Util.FIREBASE_USERS)
             .child(firebaseAuth.currentUser!!.uid)
+            .child(Util.FIREBASE_USER_INFORMATION)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userInformation = snapshot.getValue(UserInformation::class.java)
