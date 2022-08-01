@@ -15,7 +15,10 @@ import com.example.pshiksha.utils.LoaderBuilder
 import com.example.pshiksha.utils.Util
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.razorpay.Checkout
 import com.razorpay.PaymentData
 import com.razorpay.PaymentResultWithDataListener
@@ -57,27 +60,40 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
     private fun startPayment() {
         loader = LoaderBuilder(this@PlaceOrderActivity).setTitle("Please wait...")
         loader.show()
-        val activity: Activity = this@PlaceOrderActivity
-        val checkout = Checkout()
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        checkout.setKeyID(Util.RAZOR_PAY_API_KEY)
-        try {
-            val options = JSONObject()
-            options.put("name", currentUser?.displayName)
-            options.put("description", "Description Here.")
-            options.put("image", Util.RAZOR_PAY_PROFILE_PHOTO)
-            options.put("theme.color", Util.RAZOR_PAY_THEME_COLOR)
-            options.put("currency", Util.RAZOR_PAY_CURRENCY)
-//            options.put("order_id", mOrderId)
-            options.put("amount", (serviceItem!!.price * 100).toString())
-            val prefill = JSONObject()
-            prefill.put("contact", currentUser?.phoneNumber)
-            options.put("prefill", prefill)
-            checkout.open(activity, options)
-        } catch (e: Exception) {
-            Toast.makeText(activity, "Error in payment: $e", Toast.LENGTH_LONG).show()
-            e.printStackTrace()
-        }
+        FirebaseDatabase.getInstance().reference
+            .child(Util.RAZOR_PAY_API_KEY)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val apiKey = snapshot.value.toString()
+                    val activity: Activity = this@PlaceOrderActivity
+                    val checkout = Checkout()
+                    val currentUser = FirebaseAuth.getInstance().currentUser
+                    checkout.setKeyID(apiKey)
+                    try {
+                        val options = JSONObject()
+                        options.put("name", currentUser?.displayName)
+                        options.put("description", "Description Here.")
+                        options.put("image", Util.RAZOR_PAY_PROFILE_PHOTO)
+                        options.put("theme.color", Util.RAZOR_PAY_THEME_COLOR)
+                        options.put("currency", Util.RAZOR_PAY_CURRENCY)
+                        options.put("amount", (serviceItem!!.price * 100).toString())
+                        val prefill = JSONObject()
+                        prefill.put("contact", currentUser?.phoneNumber)
+                        options.put("prefill", prefill)
+                        checkout.open(activity, options)
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, "Error in payment: $e", Toast.LENGTH_LONG).show()
+                        e.printStackTrace()
+                    }
+                    loader.hide()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    loader.hide()
+                    TODO("Not yet implemented")
+                }
+            })
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

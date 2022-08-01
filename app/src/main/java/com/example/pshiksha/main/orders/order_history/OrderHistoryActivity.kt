@@ -3,7 +3,6 @@ package com.example.pshiksha.main.orders.order_history
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pshiksha.main.orders.OrderDetails
 import android.os.Bundle
-import android.view.View
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ValueEventListener
@@ -61,13 +60,6 @@ class OrderHistoryActivity : AppCompatActivity() {
                 }
             }
         }
-
-        binding?.homeUpButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
 
     private fun getOrderFromDatabase(
