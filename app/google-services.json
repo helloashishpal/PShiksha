@@ -1,18 +1,27 @@
 {
   "project_info": {
     "project_number": "814191884914",
+    "firebase_url": "https://pshiksha-8942a-default-rtdb.firebaseio.com",
     "project_id": "pshiksha-8942a",
     "storage_bucket": "pshiksha-8942a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:814191884914:android:b005d8c2626b80faebe0eb",
+        "mobilesdk_app_id": "1:814191884914:android:1629c43af09036a9ebe0eb",
         "android_client_info": {
-          "package_name": "com.example.pshiksha"
+          "package_name": "com.pshiksha4.pshiksha"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "814191884914-edutf1ibpc3u1hjkm1v3cmpuvhbv3ucm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pshiksha4.pshiksha",
+            "certificate_hash": "0c3af2cbbb3e6dc05bb577c6c10963cb20e71e68"
+          }
+        },
         {
           "client_id": "814191884914-s2up58chm5a64bpl4q85je0o62qlnta2.apps.googleusercontent.com",
           "client_type": 3

@@ -92,6 +92,11 @@
             style="@style/Widget.AppCompat.Button.ButtonTheme"
             android:text="Pay "
             android:textColor="@color/white" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/contact_us_btn"
+            style="@style/Widget.AppCompat.Button.ButtonTheme"
+            android:text="Contact Us"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
