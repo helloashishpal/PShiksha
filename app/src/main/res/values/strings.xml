@@ -4,9 +4,11 @@
     <string name="pshiksha_email_id">pshiksha4.0@gmail.com</string>
     <string name="pshiksha_website">https://www.pshiksha4.com/</string>
     <string name="pshiksha_linkedin">https://www.linkedin.com/company/pshiksha/</string>
-    <string name="pshiksha_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas vel elit dapibus semper. Vestibulum non urna tincidunt</string>
-    <string name="pshiksha_address">House no. 191, Block no. 1, Ground floor, Subhash Nagar</string>
-    <string name="pshiksha_zip_code">110027</string>
+    <string name="pshiksha_description">P. Shiksha 4.0 is a global ed, learning, and consultancy platform with a substantial and diversified base of consumers that includes students, professionals, universities, and corporates. We are building a mobility and learning community of people, students and global partnerships, to catalyze world citizenship. Our team is disintermediating the existing structure of services, and re-igniting our business model to help transform individuals and businesses in the backdrop of a borderless world.
+\n\n
+        To create a comprehensive and collaborative ecosystem, we will deliver a transformative experience to all our consumers and ensure that our work catalyses the global citizens of tomorrow, today. We are harnessing the power of technology and leveraging the expertise of our people.</string>
+    <string name="pshiksha_address">G-7/189, First Floor, Sector- 16, Rohini</string>
+    <string name="pshiksha_zip_code">110085</string>
     <string name="pshiksha_city">New Delhi, Delhi</string>
     <string name="pshiksha_country">India</string>
 
@@ -26,9 +28,6 @@
 
                                  \nMany novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here.</string>
     <string name="check_out">Check Out</string>
-
-
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas vel elit dapibus semper. Vestibulum non urna tincidunt, rutrum velit porta, rutrum dui. Sed fermentum commodo aliquam. Aliquam in placerat enim, malesuada facilisis nulla. Curabitur blandit accumsan purus, ac imperdiet nulla aliquet ut. Integer lobortis pulvinar sollicitudin. Aliquam tristique pretium ligula nec laoreet. Vivamus velit velit, blandit nec risus vel, fringilla mattis ex. Curabitur vestibulum hendrerit erat luctus aliquet. Donec non lacus elementum, tincidunt lectus non, lobortis nunc. Maecenas ut felis dolor. Phasellus iaculis odio eget metus iaculis, ac rutrum orci lobortis.</string>
 
     <string-array name="college_names">
         <item>NSUT</item>
@@ -69,13 +68,26 @@
     <string name="service_coaching_immigration_title">CAT coaching/IELTS, Visa, Immigration services</string>
 
     <!--    services name description strings-->
-    <string name="service_professional_cv_making_description">Professional CV Making</string>
-    <string name="service_major_minor_project_description">Major/Minor Projects</string>
-    <string name="service_ed_sheet_making_description">ED Sheet Making</string>
-    <string name="service_assignment_file_ppt_report_description">Assignment/File/PPT/Report Making</string>
-    <string name="service_placement_preparation_description">Placement Preparation</string>
-    <string name="service_plagiarism_removal_thesis_guidance_description">Plagiarism removal/Thesis guidance</string>
-    <string name="service_tech_non_tech_internship_description">Tech/Non-tech internship</string>
-    <string name="service_coaching_immigration_description">CAT coaching/IELTS, Visa, Immigration services</string>
+    <string name="service_professional_cv_making_description">Struggling To Write Your Resume? Get It Written With Industry Best Skilled Writers. Contact Us To Get Your Resume Or Cv Written By Expert Within 1 Working Day. All types of Job Resumes. Quality Service.We are one of the most proficient Resume Writing Services in India. Being part of the industry for more than 5 years we have served clients from multiple fields who are looking to enhance their opportunities in this competitive world. An effective resume will bring all the right attention towards your skills and experience to the interviewer. You will be able to get calls and placement from top MNC and international organisation to living a successful life ahead.</string>
+    <string name="service_major_minor_project_description">Under this service, we assist students with their major /minor projects &amp; help them with all the documents and resources that they require in the projects. Also we’ll provide complete guidance in the minor/major projects and help them with all the guidance they need.</string>
+    <string name="service_ed_sheet_making_description">
+                Engineering Graphics sheets are tough to make in the hectic semester but We are here to help you in it.
+                Just order with us.
+                </string>
+    <string name="service_assignment_file_ppt_report_description">We put immense effort to ensure you receive higher grades for your paper when you ask us to “make Your Assignment”. In fact, we provide with a number of additional features along with our assignment making services to help you get closer to your academic goal. </string>
+    <string name="service_placement_preparation_description">We offer the greatest resource with the best shortcuts to give your placement preparation an edge in getting placed quickly.</string>
+    <string name="service_plagiarism_removal_thesis_guidance_description">Under this service, we assist students with the checking of their drafts for the percentage of their content matching with that of other documents and resources uploaded on the Internet
+Once the presence of plagiarism has been detected, it is imperative to make corrections. Plagiarism removal is a unique service under which we make changes while retaining the original meaning of your document content. Under our plagiarism removal service, we search for citation sources from where the text appears copied and ensure that it is paraphrased and cited as per the required style. We give due credit to the original authors in all cases where their work has to be cited. We also make sure that quotations are written in an accurate and proper manner. Additionally, we work on all graphic elements that show signs of plagiarism. It is mostly not possible to remove all plagiarism from a document; however, with the above process, we can guarantee the removal of up to 70% of copied text, keeping the original intended meaning</string>
+    <string name="service_tech_non_tech_internship_description">We are offering Internships in different departments. This internship will help you to understand and enhance your skills while working with us. This internship is partially online and partially offline by keeping in mind your safety during the pandemic of COVID-19. This internship will help you to gain work experience or satisfy requirements for a qualification. This internship programme is framed by keeping in mind the All India Council of Technical Education (AICTE) norms &amp; guidelines.
+                                                                \n\nOPEN POSITIONS.\n\n
+                                                                Internship is open for the following positions (position code):\n\n
+                                                                1.) Business Development Analyst Intern  (IN01-2021)\n\n
+                                                                2.) Business Development Intern in Marketing (IN02-2021)\n\n
+                                                                3.) Business Development Intern in Sales (IN03-2021)\n\n
+                                                                4.) Business Development Intern in Research &amp; Operations (IN04-2021)\n\n
+                                                                5.) Business Development Intern in Management (IN05-2021)\n\n
+                                                                6.) Creative Website Designer (IN06-2021)\n\n
+    </string>
+    <string name="service_coaching_immigration_description">This course will improve your English language proficiency and academic strategies for successful participation in the academic and Higher Education courses all round the world.</string>
 
 </resources>
