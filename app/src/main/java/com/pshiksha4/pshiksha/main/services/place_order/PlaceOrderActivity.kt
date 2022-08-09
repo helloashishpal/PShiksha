@@ -29,6 +29,7 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
     private lateinit var binding: ActivityPlaceOrderBinding
     private var serviceItem: ServiceItem? = null
     private lateinit var loader: LoaderBuilder
+    private var canPay: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlaceOrderBinding.inflate(layoutInflater)
@@ -46,23 +47,39 @@ class PlaceOrderActivity : AppCompatActivity(), PaymentResultWithDataListener {
         //
         binding.homeUpButton.setOnClickListener { onBackPressed() }
         binding.payButton.setOnClickListener {
-//            if (binding.serviceDescriptionEditText.text.toString().length <= 25) {
-//                Toast.makeText(
-//                    applicationContext,
-//                    "Description must be 25 characters long.",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                return@setOnClickListener
-//            }
-            startPayment()
+            if (canPay) {
+                startPayment()
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Payments are currently tuned off.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         binding.contactUsBtn.setOnClickListener {
             startActivity(Intent(applicationContext, ContactUsActivity::class.java))
         }
+        loader = LoaderBuilder(this@PlaceOrderActivity).setTitle("Please wait...")
+
+        loader.show()
+        FirebaseDatabase.getInstance()
+            .reference
+            .child(Util.FIREBASE_PAYMENT_ENABLED)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    canPay = snapshot.getValue(Boolean::class.java)!!
+                    loader.hide()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    loader.hide()
+                }
+
+            })
     }
 
     private fun startPayment() {
-        loader = LoaderBuilder(this@PlaceOrderActivity).setTitle("Please wait...")
         loader.show()
         FirebaseDatabase.getInstance().reference
             .child(Util.RAZOR_PAY_API_KEY)

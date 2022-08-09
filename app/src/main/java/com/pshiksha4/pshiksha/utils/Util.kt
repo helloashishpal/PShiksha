@@ -6,6 +6,7 @@ object Util {
     const val FIREBASE_REFERRALS = "REFERRALS"
     const val FIREBASE_USER_INFORMATION = "USER INFORMATION"
     const val FIREBASE_USER_ORDERS = "ORDERS"
+    const val FIREBASE_PAYMENT_ENABLED = "PAYMENT_ENABLED"
 //    const val RAZOR_PAY_API_KEY = "
 //    "
     const val RAZOR_PAY_API_KEY = "RAZOR PAY API KEY"
