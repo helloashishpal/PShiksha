@@ -4,14 +4,14 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.pshiksha",
+  "applicationId": "com.pshiksha4.pshiksha",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
+      "versionCode": 4,
       "versionName": "1.0",
       "outputFile": "app-release.apk"
     }

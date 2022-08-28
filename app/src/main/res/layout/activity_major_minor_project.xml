@@ -52,7 +52,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/onCallClickButton"
         style="@style/Widget.AppCompat.Button.ButtonTheme"
-        android:text="Order this Now"
+        android:text="Book this order now!"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

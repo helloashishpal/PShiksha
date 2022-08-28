@@ -104,6 +104,7 @@
                 android:id="@+id/referral_code_text_view_layout"
                 style="@style/TextInputLayout.ProfileSetup"
                 android:hint="Referral Code"
+                app:helperText=" "
                 app:startIconDrawable="@drawable/ic_college_24">
 
                 <com.google.android.material.textfield.TextInputEditText
